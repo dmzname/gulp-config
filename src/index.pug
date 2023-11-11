@@ -1,0 +1,18 @@
+extends ./pug/template/main-template
+block variables
+	-var title = "Some Title!"
+
+prepend scripts
+
+prepend styles
+
+block header
+	include ./pug/snippets/header
+
+block content
+	include ./pug/snippets/main-content
+
+block footer
+	include ./pug/snippets/footer
+
+block other
