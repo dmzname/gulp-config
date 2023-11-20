@@ -9,8 +9,13 @@ export default {
         dest: pathDest,
     },
     css: {
-        src: pathSrc + "/assets/scss/*.scss",
-        watch: pathSrc + "/assets/scss/**/*.scss",
-        dest: pathDest + "/assets/css"
+        src: pathSrc + "/scss/*.scss",
+        watch: pathSrc + "/scss/**/*.scss",
+        dest: pathDest + "/css"
+    },
+    js: {
+        src: pathSrc + "/js/*.js",
+            watch: pathSrc + "/js/**/*js",
+            dest: pathDest + "/js/"
     },
 }

@@ -14,4 +14,8 @@ export default {
         suffix: ".min",
         extname: ".css"
     },
+    renameJS: {
+        suffix: ".min",
+        extname: ".js"
+    },
 }

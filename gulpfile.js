@@ -7,6 +7,7 @@ import app from "./gulp/config/app.js";
 
 import pugBuild from "./gulp/tasks/pugBuild.js";
 import cssBuild from "./gulp/tasks/cssBuild.js";
+import jsBuild from "./gulp/tasks/jsBuild.js";
 
 const clean = () => {
   return del(path.root);
@@ -23,11 +24,12 @@ const server = () => {
 const watcher = () => {
   gulp.watch(path.pug.watch, pugBuild).on("change", browserSync.reload);
   gulp.watch(path.css.watch, cssBuild).on("change", browserSync.reload);
+  gulp.watch(path.js.watch, jsBuild).on("change", browserSync.reload);
 }
 
 const build = gulp.series (
     clean,
-    gulp.parallel(pugBuild, cssBuild)
+    gulp.parallel(pugBuild, cssBuild, jsBuild)
 );
 
 const dev = gulp.series (
