@@ -15,7 +15,17 @@ export default {
     },
     js: {
         src: pathSrc + "/js/*.js",
-            watch: pathSrc + "/js/**/*js",
-            dest: pathDest + "/js/"
+        watch: pathSrc + "/js/**/*js",
+        dest: pathDest + "/js/"
     },
+    img: {
+        src: pathSrc + "/assets/images/*.{png,jpg,jpeg,gif,svg,ico}",
+        watch: pathSrc + "/assets/images/**/*.{jpg,jpeg,png,gif,svg,ico}",
+        dest: pathDest + "/assets/images/"
+    },
+    copyFiles: {
+        src: pathSrc + "/assets/**/*",
+        watch: pathSrc + "/assets/**/*",
+        dest: pathDest + "/assets/",
+    }
 }

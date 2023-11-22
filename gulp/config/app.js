@@ -18,4 +18,7 @@ export default {
         suffix: ".min",
         extname: ".js"
     },
+    imagemin: {
+        verbose: true
+    },
 }
