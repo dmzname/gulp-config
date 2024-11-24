@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import browserSync from "browser-sync";
-import del from "del";
+import {deleteAsync} from 'del';
 
 import path from "./gulp/config/path.js";
 import app from "./gulp/config/app.js";
@@ -11,8 +11,8 @@ import jsBuild from "./gulp/tasks/jsBuild.js";
 import imgBuild from "./gulp/tasks/imgBuild.js";
 import copyBuild from "./gulp/tasks/copyBuild.js";
 
-const clean = () => {
-  return del(path.root);
+const clean = async () => {
+  const deletedDirectoryPaths = await deleteAsync(['temp', 'public', 'build']);
 }
 
 const server = () => {

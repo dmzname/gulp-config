@@ -7,13 +7,13 @@ import plumber from "gulp-plumber";
 import notify from "gulp-notify";
 import gulpIf from "gulp-if";
 
-import dartSass from "sass";
+import * as dartSass from "sass";
 import gulpSass from "gulp-sass";
 const sass = gulpSass(dartSass);
 import autoprefixer from "gulp-autoprefixer";
 import cleanCSS from "gulp-clean-css";
 import rename from "gulp-rename";
-import sourcemaps from "gulp-sourcemaps";
+import sourcemaps from "@sequencemedia/gulp-sourcemaps";
 
 export default () => {
     return gulp.src(path.css.src)
@@ -23,8 +23,10 @@ export default () => {
                 message: error.message,
             }))
         }))
-        .pipe(gulpIf(app.isDev, sourcemaps.init()))
-        .pipe(sass())
+    .pipe(gulpIf(app.isDev, sourcemaps.init()))
+        .pipe(sass({
+            silenceDeprecations: ['legacy-js-api'],
+          }))
         .pipe(gulpIf(app.isProd, autoprefixer(app.autoprefixer)))
         .pipe(gulpIf(app.isDev, sourcemaps.write()))
         .pipe(gulpIf(app.isProd, cleanCSS(app.cleanCSS)))
